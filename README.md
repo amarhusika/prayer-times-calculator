@@ -1,4 +1,5 @@
 # Prayer Times Calculator
+Prayer Times Calculator which uses 14.6 angle for fajr and isha calculation.
 
 ## Website
 [Link](https://amarhusika.github.io/prayer-times-calculator)
