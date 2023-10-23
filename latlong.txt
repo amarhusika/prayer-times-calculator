@@ -1,0 +1,15 @@
+Kakanj
+LAT: 
+44.128014
+LONG:
+18.117826
+
+Sarajevo
+LAT:
+43.856258
+LONG:
+18.413076
+
+IZ:
+fajr: 19.0
+isha: 17.0
