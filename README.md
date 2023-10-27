@@ -28,6 +28,8 @@ I fixed calculation of DST (Daylight Saving Time).
 DST happens from last sunday of March to last sunday of October.
 Also, I removed all prayer times calculation methods except the most correct method, which is angle based with 14.6 angle.
 
+[All] praise is [due] to Allāh, Lord of the worlds [Quran, 1:2]
+
 ## Website
 [Link](https://amarhusika.github.io/prayer-times-calculator)
 
