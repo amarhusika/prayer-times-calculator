@@ -19,8 +19,8 @@ calculated by dividing the time from sunset to true dawn into
 two parts)
 
 ## Prayer times calculation
-All prayer times are calculated according to math-based formulas that use latitute and longitude coordinates,
-sun position, date, time zone, dt
+All prayer times are calculated according to math-based [formulas](http://praytimes.org/wiki/Prayer_Times_Calculation) that use latitute and longitude coordinates,
+sun position, date, time zone, and dst.
 
 [Source code](http://praytimes.org/code/)
 
