@@ -1,7 +1,7 @@
 # Prayer Times Calculator
 Prayer Times Calculator which uses 14.6 angle for fajr and isha calculation.
 
-## Prayer times ruling
+## Ruling
 - Fajr prayer – from the appearance of true dawn, i.e. of light
 on the right and left side of the horizon until sunrise
 - Dhuhr prayer - when the sun moves from the zenith (5-7
@@ -18,7 +18,7 @@ sky until the middle of the night (half of the night is
 calculated by dividing the time from sunset to true dawn into
 two parts)
 
-## Prayer times calculation
+## Calculation
 All prayer times are calculated according to math-based [formulas](http://praytimes.org/wiki/Prayer_Times_Calculation) that use latitute and longitude coordinates,
 sun position, date, time zone, and dst.
 
