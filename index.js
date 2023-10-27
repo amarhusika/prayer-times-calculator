@@ -182,7 +182,13 @@ function PrayTimes(method) {
 	for (var i in timeNames)
 		offset[i] = 0;
 
-
+	function lastSunday (year, month) {
+    var date = new Date(year,month,1,12);
+    let weekday = date.getDay();
+    let dayDiff = weekday===0 ? 7 : weekday;
+    let lastSunday = date.setDate(date.getDate() - dayDiff);
+    return date.toDateString();
+}
 
 	//----------------------- Public Functions ------------------------
 	return {
@@ -223,7 +229,6 @@ function PrayTimes(method) {
 	// get default calc parametrs
 	getDefaults: function() { return methods; },
 
-
 	// return prayer times for a given date
 	getTimes: function(date, coords, timezone, dst, format) {
 		lat = 1* coords[0];
@@ -236,12 +241,24 @@ function PrayTimes(method) {
 			timezone = this.getTimeZone(date);
 		if (typeof(dst) == 'undefined')
 			dst = this.getDst(date);
-			let dstFix=0;
-			if(date[1]>=4&&date[1]<=9&&dst==1)dstFix=1;
-			if(date[1]==10&&date[2]<=28&&dst==1)dstFix=1;
+
+		// DST (Daylight Saving Time) 
+		// from last sunday of March to last sunday of October
+		
+		// slice cuts year from full date
+		let year=date.toString().slice(0,4);
+
+		// slice cuts day from full date
+		let lastSundayMarch=lastSunday(year,3).slice(8,10);
+		let lastSundayOctober=lastSunday(year,10).slice(8,10);
+
+		let dstFix=0;
+		if(date[1]==3&&date[2]>=lastSundayMarch&&dst==1)dstFix=1;
+		if(date[1]>=4&&date[1]<=9&&dst==1)dstFix=1;
+		if(date[1]==10&&date[2]<=lastSundayOctober&&dst==1)dstFix=1;
 		timeZone = 1* timezone+ dstFix;
 		jDate = this.julian(date[0], date[1], date[2])- lng/ (15* 24);
-
+        console.log();
 		return this.computeTimes();
 	},
 
@@ -482,6 +499,9 @@ function PrayTimes(method) {
 		var t2 = this.gmtOffset([year, 6, 1]);
 		return Math.min(t1, t2);
 	},
+
+	
+
 
 
 	// get daylight saving for a given date
