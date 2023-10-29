@@ -255,7 +255,7 @@ function PrayTimes(method) {
 		let dstFix=0;
 		if(date[1]==3&&date[2]>=lastSundayMarch&&dst==1)dstFix=1;
 		if(date[1]>=4&&date[1]<=9&&dst==1)dstFix=1;
-		if(date[1]==10&&date[2]<=lastSundayOctober&&dst==1)dstFix=1;
+		if(date[1]==10&&date[2]<lastSundayOctober&&dst==1)dstFix=1;
 		timeZone = 1* timezone+ dstFix;
 		jDate = this.julian(date[0], date[1], date[2])- lng/ (15* 24);
 		return this.computeTimes();
